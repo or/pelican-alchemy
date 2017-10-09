@@ -29,6 +29,9 @@ hr {
 /* ------------------------------------------------------------------------- */
 
 .container {
+  position: relative;
+  left: 0px;
+  top: 0px;
   max-width: 960px;
 }
 
@@ -64,6 +67,11 @@ hr {
 .main {
   background-color: #fff;
   padding: 1.5rem 0;
+}
+
+.source {
+  background-color: #fff;
+  padding: 0 0;
 }
 
 .footer {
@@ -124,4 +132,19 @@ hr {
   .teaser header li:not(:last-child) {
     margin-right: 10px;
   }
+}
+
+.main, .source {
+    position: relative;
+}
+
+.toggle-source {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 0.2em;
+}
+
+.source pre {
+    margin-bottom: 0;
 }

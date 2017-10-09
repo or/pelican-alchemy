@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <script>
+   function toggle(name) {
+     var element = document.getElementsByClassName(name)[0];
+     if (element.style.display == "none") {
+       element.style.display = "block";
+     } else {
+       element.style.display = "none";
+     }
+   }
+
+   function toggle_source() {
+     toggle('main');
+     toggle('source');
+   }
+  </script>
+{% endblock %}
+
+{% block main_toggle %}
+  <div class="toggle-source" onclick="toggle_source(); return false;">code</div>
+{% endblock %}
+
+{% block source %}
+  <div class="source" style="display:none;">
+    <div class="toggle-source" onclick="toggle_source(); return false;">content</div>
+    <div class="container">
+      {% block source_content %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}

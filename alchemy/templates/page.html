@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base-with-source.html" %}
 
 {% block head %}
 {{ super() }}
@@ -20,3 +20,5 @@
   </div>
 </article>
 {% endblock %}
+
+{% block source_content %}{{ page.source }}{% endblock %}

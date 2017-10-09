@@ -79,6 +79,9 @@
             <li class="list-inline-item text-muted">|</li>
             {% endif %}
             <li class="list-inline-item"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+            {% if not loop.last %}
+            <li class="list-inline-item text-muted">|</li>
+            {% endif %}
             {% endfor %}
             {% endif %}
             {% for icon, link in ICONS %}
@@ -95,12 +98,16 @@
   </header>
 
   <div class="main">
+    {% block main_toggle %}{% endblock %}
     <div class="container">
       <h1>{% block page_header %}{% endblock %}</h1>
       <hr>
       {% block content %}{% endblock %}
     </div>
   </div>
+
+
+  {% block source %}{% endblock %}
 
   <footer class="footer">
     <div class="container">
