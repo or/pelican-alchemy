@@ -17,6 +17,11 @@ a:hover {
   color: #0085a1;
 }
 
+a.fa:focus,
+a.fa:hover {
+    text-decoration: none;
+}
+
 blockquote {
   color: #818a91;
   font-style: italic;
