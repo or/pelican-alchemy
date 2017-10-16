@@ -153,3 +153,19 @@ hr {
 .source pre {
     margin-bottom: 0;
 }
+
+body {
+    font-family: "Franklin ITC", DejaVu Sans, sans-serif;
+}
+
+p {
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Franklin ITC", DejaVu Sans, sans-serif;
+}
+
+code, kbd, pre, samp {
+    font-family: "DejaVu Sans Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
