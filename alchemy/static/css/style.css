@@ -17,8 +17,8 @@ a:hover {
   color: #0085a1;
 }
 
-a.fa:focus,
-a.fa:hover {
+a:focus,
+a:hover {
     text-decoration: none;
 }
 
@@ -115,7 +115,7 @@ hr {
 }
 
 .article .content a {
-  text-decoration: underline
+  color: #005591;
 }
 
 @media (min-width: 576px) {
