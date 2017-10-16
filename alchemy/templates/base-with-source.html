@@ -19,13 +19,13 @@
 {% endblock %}
 
 {% block main_toggle %}
-  <div class="toggle-source" onclick="toggle_source(); return false;">code</div>
+  <a class="toggle-source fa fa-code" href="#" title="view source code" onclick="toggle_source(); return false;"></a>
 {% endblock %}
 
 {% block source %}
   <div class="source" style="display:none;">
-    <div class="toggle-source" onclick="toggle_source(); return false;">content</div>
     <div class="container">
+      <a class="toggle-source fa fa-file-text-o" href="#" title="view page" onclick="toggle_source(); return false;"></a>
       {% block source_content %}{% endblock %}
     </div>
   </div>

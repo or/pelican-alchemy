@@ -145,9 +145,17 @@ hr {
 
 .toggle-source {
     position: absolute;
-    right: 0px;
+    right: 1em;
     top: 0px;
     padding: 0.2em;
+}
+
+.main .toggle-source {
+    top: -1.5em;
+}
+
+.source .toggle-source {
+    color: #839496;
 }
 
 .source pre {
