@@ -22,11 +22,13 @@
   {% if FEED_RSS %}
   <link rel="alternate" type="application/rss+xml" href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" title="RSS Feed">
   {% endif %}
-  {% if CATEGORY_FEED_ATOM and category %}
-  <link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" title="Categories Atom Feed">
-  {% endif %}
-  {% if CATEGORY_FEED_RSS and category %}
-  <link rel="alternate" type="application/rss+xml" href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" title="Categories RSS Feed">
+  {% if not HIDE_CATEGORIES %}
+    {% if CATEGORY_FEED_ATOM and category %}
+    <link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" title="Categories Atom Feed">
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category %}
+    <link rel="alternate" type="application/rss+xml" href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" title="Categories RSS Feed">
+    {% endif %}
   {% endif %}
   {% if TAG_FEED_ATOM and tag %}
   <link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" title="Tags Atom Feed">
@@ -117,7 +119,9 @@
           <li class="list-inline-item"><a href="{{ SITEURL }}/authors/">Authors</a></li>
           {% endif %}
           <li class="list-inline-item"><a href="{{ SITEURL }}/archives/">Archives</a></li>
+          {% if not HIDE_CATEGORIES %}
           <li class="list-inline-item"><a href="{{ SITEURL }}/categories/">Categories</a></li>
+          {% endif %}
           {% if tags|length %}
           <li class="list-inline-item"><a href="{{ SITEURL }}/tags/">Tags</a></li>
           {% endif %}

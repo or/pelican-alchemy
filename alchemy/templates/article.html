@@ -21,10 +21,12 @@
         <i class="fa fa-clock-o"></i>
         {{ article.locale_date }}
       </li>
+      {% if not HIDE_CATEGORIES %}
       <li class="list-inline-item">
         <i class="fa fa-folder-open-o"></i>
         <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
       </li>
+      {% endif %}
       {% if not HIDE_AUTHORS and article.authors %}
       <li class="list-inline-item">
         <i class="fa fa-user-o"></i>
