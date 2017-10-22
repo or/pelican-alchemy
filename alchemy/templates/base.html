@@ -118,11 +118,13 @@
           {% if not HIDE_AUTHORS %}
           <li class="list-inline-item"><a href="{{ SITEURL }}/authors/">Authors</a></li>
           {% endif %}
+          {% if not HIDE_ARCHIVES %}
           <li class="list-inline-item"><a href="{{ SITEURL }}/archives/">Archives</a></li>
+          {% endif %}
           {% if not HIDE_CATEGORIES %}
           <li class="list-inline-item"><a href="{{ SITEURL }}/categories/">Categories</a></li>
           {% endif %}
-          {% if tags|length %}
+          {% if not HIDE_TAGS and tags|length %}
           <li class="list-inline-item"><a href="{{ SITEURL }}/tags/">Tags</a></li>
           {% endif %}
         </ul>
