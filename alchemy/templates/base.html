@@ -47,9 +47,52 @@
   {% endif %}
 
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/tether.min.css">
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-toc.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('default') }}.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
+
+  <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
+  <script src="{{ SITEURL }}/theme/js/tether.min.js"></script>
+  <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
+  <script src="{{ SITEURL }}/theme/js/bootstrap-toc.min.js"></script>
+
+  <script>
+$(function() {
+  Toc.init({
+    $nav: $("#toc")
+  });
+  $("body").scrollspy({
+     target: "#toc"
+  });
+
+  $('#toc').affix({
+      offset: {
+          top: $('#toc').offset().top
+      }
+  });
+});
+  </script>
+
+  {% if article or page %}
+  <script>
+   function toggle(name) {
+     var element = $(name);
+     if (element.css("display") == "none") {
+       element.css("display", "block");
+     } else {
+       element.css("display", "none");
+     }
+   }
+
+   function toggle_source() {
+     toggle('.main');
+     toggle('#toc');
+     toggle('.source');
+   }
+  </script>
+  {% endif %}
 
   {% block head %}{% endblock %}
   {% include 'include/analytics.html' %}
@@ -67,7 +110,7 @@
         </div>
         {% endif %}
         <div class="col-sm-{% if SITEIMAGE %}8{% else %}12{% endif %}">
-          <h1 class="title">{{ SITENAME }}</h1>
+          <h1 class="title" data-toc-skip>{{ SITENAME }}</h1>
           {% if SITESUBTITLE %}
           <p class="text-muted">{{ SITESUBTITLE }}</p>
           {% endif %}
@@ -99,17 +142,30 @@
     </div>
   </header>
 
-  <div class="main">
+  <div class="content">
     <div class="container">
-      {% block main_toggle %}{% endblock %}
-      <h1>{% block page_header %}{% endblock %}</h1>
+     <div class="row">
+      <div class="col-sm-11 main">
+      {% if article or page %}
+      <a class="toggle-source fa fa-code" href="#" title="view source code" onclick="toggle_source(); return false;"></a>
+      {% endif %}
+
+      <h1 data-toc-skip>{% block page_header %}{% endblock %}</h1>
       <hr>
       {% block content %}{% endblock %}
+      </div>
+      {% block source %}{% endblock %}
+      {% if article or page %}
+      <div class="col-sm-11 source" style="display:none;">
+        <a class="toggle-source fa fa-file-text-o" href="#" title="view page" onclick="toggle_source(); return false;"></a>
+        {{ (article or page).source }}
+      </div>
+      <div class="col-sm-1">
+        <nav id="toc"></nav>
+      </div>
+      {% endif %}
     </div>
   </div>
-
-
-  {% block source %}{% endblock %}
 
   <footer class="footer">
     <div class="container">

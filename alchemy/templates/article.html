@@ -1,4 +1,4 @@
-{% extends "base-with-source.html" %}
+{% extends "base.html" %}
 
 {% block head %}
 {{ super() }}
@@ -51,5 +51,3 @@
 </article>
 {% include 'include/comments.html' %}
 {% endblock %}
-
-{% block source_content %}{{ article.source }}{% endblock %}
