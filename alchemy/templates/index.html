@@ -18,12 +18,8 @@ Posts
 {% block content %}
 {% for article in articles_page.object_list %}
 <article class="row teaser">
-  <header class="col-sm-4 text-muted">
+  <header class="col-sm-1 text-muted">
     <ul>
-      <li title="{{ article.date.isoformat() }}">
-        <i class="fa fa-clock-o"></i>
-        {{ article.locale_date }}
-      </li>
       {% if not HIDE_CATEGORIES %}
       <li>
         <i class="fa fa-folder-open-o"></i>
