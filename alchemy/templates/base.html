@@ -10,6 +10,8 @@
   <title>{% block title %}| {{ SITENAME }}{% endblock %}</title>
   <link rel="canonical" href="{{ SITEURL }}/{{ output_file }}">
 
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css">
+
   {% if FEED_ALL_ATOM %}
   <link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" title="Full Atom Feed">
   {% endif %}
@@ -49,7 +51,6 @@
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/tether.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-toc.min.css">
-  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('default') }}.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
 
