@@ -26,10 +26,10 @@
 .highlight pre .gu { color: #839496 } /* Generic.Subheading */
 .highlight pre .gt { color: #839496 } /* Generic.Traceback */
 .highlight pre .kc { color: #859900 } /* Keyword.Constant */
-.highlight pre .kd { color: #2aa198; font-style: strong } /* Keyword.Declaration */
+.highlight pre .kd { color: #859900 } /* Keyword.Declaration */
 .highlight pre .kn { color: #cb4b16 } /* Keyword.Namespace */
-.highlight pre .kp { color: #cb4b16; font-style: strong } /* Keyword.Pseudo */
-.highlight pre .kr { color: #859900; font-style: strong } /* Keyword.Reserved */
+.highlight pre .kp { color: #cb4b16 } /* Keyword.Pseudo */
+.highlight pre .kr { color: #859900 } /* Keyword.Reserved */
 .highlight pre .kt { color: #859900 } /* Keyword.Type */
 .highlight pre .ld { color: #839496 } /* Literal.Date */
 .highlight pre .m { color: #2aa198 } /* Literal.Number */
