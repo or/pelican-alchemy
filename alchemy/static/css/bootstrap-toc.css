@@ -12,6 +12,7 @@ nav[data-toggle='toc'] .nav > li > a {
   font-size: 13px;
   font-weight: 500;
   color: #767676;
+  white-space: nowrap;
 }
 nav[data-toggle='toc'] .nav > li > a:hover,
 nav[data-toggle='toc'] .nav > li > a:focus {
@@ -29,6 +30,7 @@ nav[data-toggle='toc'] .nav > .active:focus > a {
   color: #563d7c;
   background-color: transparent;
   border-left: 2px solid #563d7c;
+  white-space: nowrap;
 }
 
 /* Nav: second level (shown on .active) */
@@ -43,6 +45,7 @@ nav[data-toggle='toc'] .nav .nav > li > a {
   padding-left: 30px;
   font-size: 12px;
   font-weight: normal;
+  white-space: nowrap;
 }
 nav[data-toggle='toc'] .nav .nav > li > a:hover,
 nav[data-toggle='toc'] .nav .nav > li > a:focus {
