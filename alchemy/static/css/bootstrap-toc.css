@@ -32,10 +32,11 @@ nav[data-toggle='toc'] .nav > .active:focus > a {
 }
 
 /* Nav: second level (shown on .active) */
-nav[data-toggle='toc'] .nav .nav {
-  display: none; /* Hide by default, but at >768px, show it */
-  padding-bottom: 10px;
-}
+/* nav[data-toggle='toc'] .nav .nav { */
+/*   display: none; /\* Hide by default, but at >768px, show it *\/ */
+/*   padding-bottom: 10px; */
+/* } */
+
 nav[data-toggle='toc'] .nav .nav > li > a {
   padding-top: 1px;
   padding-bottom: 1px;
