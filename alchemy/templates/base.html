@@ -97,6 +97,16 @@ $(function() {
 
   {% block head %}{% endblock %}
   {% include 'include/analytics.html' %}
+
+  {% if article %}
+    {% if article.js %}
+      {% for script in article.js %}
+        {% if 'top' in script[-4:] %}
+          {{ script[:-5]|format(SITEURL) }}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
 </head>
 
 <body>
@@ -190,6 +200,16 @@ $(function() {
       </div>
     </div>
   </footer>
+
+  {% if article %}
+    {% if article.js %}
+      {% for script in article.js %}
+        {% if 'bottom' in script[-7:] %}
+          {{ script[:-8]|format(SITEURL) }}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
 </body>
 
 </html>
