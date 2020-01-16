@@ -1,0 +1,36 @@
+[class^="icon-"], [class*=" icon-"] {
+    background-repeat: no-repeat;
+    background-size: 1em 1em;
+    width: 1em;
+    height: 1em;
+    vertical-align: text-bottom;
+    display: inline-block;
+}
+
+.icon-rss {
+    background: url('../assets/icon-rss.svg');
+}
+
+.icon-github {
+    background: url('../assets/icon-github.svg');
+}
+
+.icon-code {
+    background: url('../assets/icon-code.svg');
+}
+
+.icon-file-text-o {
+    background: url('../assets/icon-file-text-light.svg');
+}
+
+.icon-tag {
+    background: url('../assets/icon-tag.svg');
+}
+
+.icon-folder-open-o {
+    background: url('../assets/icon-folder.svg');
+}
+
+.icon-user {
+    background: url('../assets/icon-user.svg');
+}

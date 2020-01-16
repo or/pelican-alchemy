@@ -19,13 +19,13 @@
     <ul class="list-inline">
       {% if not HIDE_CATEGORIES %}
       <li class="list-inline-item">
-        <i class="fa fa-folder-open-o"></i>
+        <i class="icon icon-folder-open-o"></i>
         <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
       </li>
       {% endif %}
       {% if not HIDE_AUTHORS and article.authors %}
       <li class="list-inline-item">
-        <i class="fa fa-user-o"></i>
+        <i class="icon icon-user"></i>
         {% for author in article.authors %}
         <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% if not loop.last %}, {% endif %}
         {% endfor %}
@@ -33,7 +33,7 @@
       {% endif %}
       {% if article.tags %}
       <li class="list-inline-item">
-        <i class="fa fa-files-o"></i>
+        <i class="icon icon-tag"></i>
         {% for tag in article.tags %}
         <a href="{{ SITEURL }}/{{ tag.url }}">#{{ tag }}</a>{% if not loop.last %}, {% endif %}
         {% endfor %}

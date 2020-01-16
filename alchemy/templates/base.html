@@ -140,7 +140,7 @@ $(function() {
             {% if (LINKS or (DISPLAY_PAGES_ON_MENU and pages)) and loop.first %}
             <li class=" list-inline-item text-muted">|</li>
             {% endif %}
-            <li class="list-inline-item"><a class="icon icon-{{ icon }}" href="{{ link }}" title="{{ title }}" target="_blank"></a></li>
+            <li class="list-inline-item"><a class="icon-{{ icon }}" href="{{ link }}" title="{{ title }}" target="_blank"></a></li>
             {% endfor %}
           </ul>
           {% endif %}
@@ -154,7 +154,7 @@ $(function() {
      <div class="row">
       <div class="col-sm-11 main">
       {% if article or page %}
-      <a class="toggle-source fa fa-code" href="#" title="view source code" onclick="toggle_source(); return false;"></a>
+      <a class="toggle-source icon-code" href="#" title="view source code" onclick="toggle_source(); return false;"></a>
       {% endif %}
 
       <h1 data-toc-skip>{% block page_header %}{% endblock %}</h1>
@@ -164,7 +164,7 @@ $(function() {
       {% block source %}{% endblock %}
       {% if article or page %}
       <div class="col-sm-11 source" style="display:none;">
-        <a class="toggle-source fa fa-file-text-o" href="#" title="view page" onclick="toggle_source(); return false;"></a>
+        <a class="toggle-source icon-file-text-o" href="#" title="view page" onclick="toggle_source(); return false;"></a>
         {{ (article or page).source }}
       </div>
       <div class="col-sm-1">
