@@ -50,44 +50,30 @@
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap-toc.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('default') }}.min.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
-
-  <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
-  <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
-  <script src="{{ SITEURL }}/theme/js/bootstrap-toc.min.js"></script>
-
-  <script>
-$(function() {
-  Toc.init({
-    $nav: $("#toc")
-  });
-  $("body").scrollspy({
-     target: "#toc"
-  });
-
-  $('#toc').affix({
-      offset: {
-          top: $('#toc').offset().top
-      }
-  });
-});
-  </script>
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/icomoon.css">
 
   {% if article or page %}
   <script>
-   function toggle(name) {
-     var element = $(name);
-     if (element.css("display") == "none") {
-       element.css("display", "block");
+   function toggle(id, className) {
+     var element;
+
+     if (id != null) {
+       element = document.getElementById(id);
      } else {
-       element.css("display", "none");
+       element = document.getElementsByClassName(className)[0];
+     }
+
+     if (element.style.display == "none") {
+       element.style.display = "block";
+     } else {
+       element.style.display = "none";
      }
    }
 
    function toggle_source() {
-     toggle('.main');
-     toggle('#toc');
-     toggle('.source');
+     toggle(null, 'main');
+     toggle('toc', null);
+     toggle(null, 'source');
    }
   </script>
   {% endif %}
@@ -169,7 +155,8 @@ $(function() {
         {{ (article or page).source }}
       </div>
       <div class="col-sm-1">
-        <nav id="toc"></nav>
+        <nav id="toc" data-toggle="toc" class="sticky-top">
+        </nav>
       </div>
       {% endif %}
     </div>
@@ -207,6 +194,76 @@ $(function() {
       {% endfor %}
     {% endif %}
   {% endif %}
+
+  <script>
+   function setupToc() {
+     function onlyUnique(value, index, self) {
+       return self.indexOf(value) === index;
+     }
+
+     function addClass(element, className) {
+       var classes = element.className.split(' ').filter(onlyUnique);
+       classes.push(className);
+       classes = classes.filter(onlyUnique);
+       element.className = classes.join(' ');
+     }
+
+     function removeClass(element, className) {
+       var classes = element.className.split(' ').filter(function(value) { value != className });
+       element.className = classes.join(' ');
+     }
+
+     var toc = document.getElementById('toc');
+     sections = Array.from(document.querySelectorAll('h2[id],h3[id]'));
+     var list = document.createElement('ul');
+     list.className = 'nav';
+     var lastH2 = null;
+     sections.forEach(section => {
+       const sectionId = section.id;
+       var a = document.createElement('a');
+       var li = document.createElement('li');
+       li.setAttribute('id', 'nav-' + sectionId);
+       a.setAttribute('href', '#' + sectionId);
+       a.appendChild(document.createTextNode(section.textContent));
+       li.appendChild(a);
+       if (section.tagName == 'H2' || lastH2 == null) {
+         lastH2 = li;
+         list.appendChild(li);
+       } else {
+         var subList = lastH2.getElementsByTagName('UL')[0];
+         if (subList == null) {
+           subList = document.createElement('ul');
+           subList.className = 'nav';
+           lastH2.appendChild(subList);
+         }
+         subList.appendChild(li);
+       }
+     });
+     toc.appendChild(list);
+
+     const scrollHandler = entries =>
+       entries.forEach(entry => {
+         const section = entry.target;
+         const sectionId = section.id;
+         const sectionLink = document.querySelector('a[href="#' + sectionId + '"]');
+
+         if (entry.intersectionRatio > 0) {
+           addClass(sectionLink.parentElement, 'active');
+         } else {
+           removeClass(sectionLink.parentElement, 'active');
+         }
+       });
+
+     // Creates a new scroll observer
+     const observer = new IntersectionObserver(scrollHandler);
+
+     //noinspection JSCheckFunctionSignatures
+     sections.forEach(section => observer.observe(section));
+   }
+
+   window.addEventListener('load', setupToc);
+  </script>
+
 </body>
 
 </html>

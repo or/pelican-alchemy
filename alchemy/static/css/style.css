@@ -29,7 +29,7 @@ blockquote {
 }
 
 hr {
-  margin: 1.5rem 0;
+  margin: 0.7rem 0;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -42,12 +42,12 @@ hr {
 }
 
 .header {
-    font-size: 1.8rem;
+  font-size: 1.2rem;
 }
 
 .header,
 .footer {
-  padding: 1.5rem 0 .5rem;
+  padding: 1.5rem 0 0;
 }
 
 .header {
@@ -59,9 +59,8 @@ hr {
 }
 
 .header .title {
-    font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  margin-bottom: 1rem;
 }
 
 .header ul,
@@ -70,7 +69,7 @@ hr {
 }
 
 .header ul {
-  font-size: 1.7rem;
+  font-size: 1.1rem;
   font-weight: 300;
   text-transform: lowercase;
 }
@@ -91,6 +90,14 @@ hr {
 
 .pagination .page-link {
   color: #333;
+}
+
+.teaser {
+    font-size: 0.9em;
+}
+
+.teaser h4 {
+    font-size: 1.2em;
 }
 
 .teaser header ul {
@@ -121,7 +128,7 @@ hr {
 
 @media (min-width: 576px) {
   .header .title {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 
@@ -147,11 +154,11 @@ hr {
 .toggle-source {
     position: absolute;
     right: 1em;
-    top: 0;
+    top: 0.1em;
     padding: 0.2em;
 }
 
-.source .toggle-source {
+.source .toggle-source:not(:hover) {
     color: #839496;
 }
 
@@ -171,6 +178,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Franklin ITC", DejaVu Sans, sans-serif;
 }
 
+.content h1:first-of-type {
+    margin-top: 0.5em;
+}
+
 code, kbd, pre, samp {
     font-family: "DejaVu Sans Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     border-radius: 0;
@@ -180,12 +191,8 @@ code, kbd, pre, samp {
     line-height: 1.2;
 }
 
-.affix {
-    top: 0;
-}
-
 #toc {
-    padding-top: 2em;
+    padding-top: 1em;
 }
 
 nav[data-toggle='toc'] .nav > li > a:hover,
@@ -198,21 +205,4 @@ nav[data-toggle='toc'] .nav > .active:hover > a,
 nav[data-toggle='toc'] .nav > .active:focus > a {
     color: #0085a1;
     border-left: 2px solid #0085a1;
-}
-
-.icon {
-    background-repeat: no-repeat;
-    background-size: 1em 1em;
-    width: 1em;
-    height: 1em;
-    vertical-align: text-bottom;
-    display: inline-block;
-}
-
-.icon-rss {
-    background: url('../assets/icon-rss.svg');
-}
-
-.icon-github {
-    background: url('../assets/icon-github.svg');
 }
